@@ -8,8 +8,12 @@ as comment. With this module, emacs will also do this.
 
 * INSTALLATION
 
-Just put this file in your emacs =load-path= and type =(require 'never-comment)=
-somewhere in your =.emacs= init file.
+Just put this file in your emacs =load-path= and place the following lines
+somewhere in your =.emacs= init file:
+#+BEGIN_SRC emacs-lisp
+(require 'never-comment)
+(never-comment-init)
+#+END_SRC
 
 * DISCLAIMER
 The code is actually written by Scott Frazer on [[http://stackoverflow.com/a/4554658/89376][stackoverflow.com]]. [[https://github.com/To1ne][I]] took the liberty
