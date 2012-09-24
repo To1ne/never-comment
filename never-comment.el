@@ -70,7 +70,6 @@
    nil
    '((never-comment--c-mode-font-lock (0 font-lock-comment-face prepend))) 'add-to-end))
 
-;;;###autoload
 (defun never-comment-init ()
   "Initialize the never-comment hooks"
   (add-hook 'c-mode-common-hook 'never-comment--c-mode-common-hook))
