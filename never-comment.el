@@ -72,6 +72,7 @@
 
 (defun never-comment-init ()
   "Initialize the never-comment hooks"
+  (interactive)
   (add-hook 'c-mode-common-hook 'never-comment--c-mode-common-hook))
 
 (provide 'never-comment)
