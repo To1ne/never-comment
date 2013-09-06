@@ -40,6 +40,12 @@
 
 ;;; Code:
 
+(defface never-comment-face
+  '((t :inherit font-lock-comment-face
+       :foreground "grey55"))
+  "Face for never commented text."
+  :group 'never-comment-faces)
+
 (defun never-comment--c-mode-font-lock (limit)
   "Function that will find #if 0 blocks."
   (save-restriction
@@ -56,19 +62,19 @@
                   (setq start (match-end 0)
                         start-depth depth)))
             (when (and start (= depth start-depth))
-              (c-put-font-lock-face start (match-beginning 0) 'font-lock-comment-face)
+              (c-put-font-lock-face start (match-beginning 0) 'never-comment-face)
               (setq start nil))
             (when (string= str "endif")
               (setq depth (1- depth)))))
         (when (and start (> depth 0))
-          (c-put-font-lock-face start (point) 'font-lock-comment-face)))))
+          (c-put-font-lock-face start (point) 'never-comment-face)))))
   nil)
 
 (defun never-comment--c-mode-common-hook ()
   "Hook to show #if 0 blocks as comment."
   (font-lock-add-keywords
    nil
-   '((never-comment--c-mode-font-lock (0 font-lock-comment-face prepend))) 'add-to-end))
+   '((never-comment--c-mode-font-lock (0 never-comment-face prepend))) 'add-to-end))
 
 (defun never-comment-init ()
   "Initialize the never-comment hooks"
