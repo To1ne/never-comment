@@ -40,6 +40,8 @@
 
 ;;; Code:
 
+(declare-function c-put-font-lock-face "cc-fonts")
+
 (defface never-comment-face
   '((t :inherit font-lock-comment-face
        :foreground "grey55"))
@@ -76,6 +78,7 @@
    nil
    '((never-comment--c-mode-font-lock (0 never-comment-face prepend))) 'add-to-end))
 
+;;;###autoload
 (defun never-comment-init ()
   "Initialize the never-comment hooks"
   (interactive)
