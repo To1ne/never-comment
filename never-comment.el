@@ -82,7 +82,9 @@
 (defun never-comment-init ()
   "Initialize the never-comment hooks"
   (interactive)
-  (add-hook 'c-mode-common-hook 'never-comment--c-mode-common-hook))
+  (add-hook 'c-initialization-hook 
+            (lambda ()
+              (add-hook 'c-mode-common-hook 'never-comment--c-mode-common-hook))))
 
 (provide 'never-comment)
 ;;; never-comment.el ends here
