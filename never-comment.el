@@ -84,7 +84,8 @@
   (interactive)
   (add-hook 'c-initialization-hook 
             (lambda ()
-              (add-hook 'c-mode-common-hook 'never-comment--c-mode-common-hook))))
+              (if (require 'never-comment nil t)
+                  (add-hook 'c-mode-common-hook 'never-comment--c-mode-common-hook)))))
 
 (provide 'never-comment)
 ;;; never-comment.el ends here
