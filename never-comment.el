@@ -72,7 +72,6 @@
           (c-put-font-lock-face start (point) 'never-comment-face)))))
   nil)
 
-;;;###autoload
 (defun never-comment--c-mode-common-hook ()
   "Hook to show #if 0 blocks as comment."
   (font-lock-add-keywords
